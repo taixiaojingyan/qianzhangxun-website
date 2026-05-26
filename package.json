@@ -1,7 +1,7 @@
 {
   "name": "qianzhangxun-website",
   "version": "1.0.0",
-  "homepage": "https://你的GitHub用户名.github.io/你的仓库名",
+  "homepage": "https://github.com/taixiaojingyan/qianzhangxun-website",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development",
