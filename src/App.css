@@ -1,0 +1,53 @@
+/* App 主容器 */
+.App {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 主内容区域 - 让 footer 自动贴在底部 */
+main {
+    flex: 1;
+}
+
+
+/* 全局分割线 */
+.divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+    border-radius: 3px;
+}
+
+/* 科技装饰元素 */
+.tech-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--primary-cyan);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* 页面切换动画 */
+.page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .divider {
+        width: 40px;
+        margin: var(--spacing-sm) 0 var(--spacing-md);
+    }
+}

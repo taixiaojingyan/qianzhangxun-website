@@ -1,0 +1,99 @@
+/* ========== 科技页脚 ========== */
+.footer {
+    background: linear-gradient(180deg, rgba(5, 11, 20, 0.95) 0%, #03070F 100%);
+    border-top: 1px solid var(--border-glow);
+    padding: 48px 0 24px;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-glow);
+}
+
+.footer-info {
+    flex: 2;
+    min-width: 250px;
+}
+
+.footer-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.footer-info p {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links h4 {
+    color: var(--primary-cyan);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--primary-cyan);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+    .footer {
+        padding: 32px 0 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .footer-links h4 {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+}

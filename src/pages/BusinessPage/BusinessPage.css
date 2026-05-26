@@ -1,0 +1,299 @@
+.business-page {
+    min-height: 100vh;
+}
+
+.business-hero {
+    background: linear-gradient(135deg, #0B2B4A 0%, #2C7DA0 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.business-hero .page-title {
+    color: white;
+    margin-bottom: 16px;
+}
+
+.business-hero .hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.revenue-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.revenue-card {
+    background: #F8FAFE;
+    border-radius: 20px;
+    padding: 28px;
+    transition: transform 0.3s;
+    border: 1px solid #E2E8F0;
+}
+
+.revenue-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.1);
+}
+
+.revenue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.revenue-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0B2B4A;
+}
+
+.revenue-amount {
+    background: #0B2B4A;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.revenue-desc {
+    color: #4A5568;
+    line-height: 1.6;
+}
+
+.network-section {
+    padding: 80px 0;
+    background: #F8FAFE;
+}
+
+.network-visual {
+    margin-top: 48px;
+}
+
+.map-container {
+    background: white;
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.map-placeholder {
+    text-align: center;
+}
+
+.map-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0B2B4A;
+    margin-bottom: 24px;
+}
+
+.cities-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.city-tag {
+    background: #EFF6FF;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: #0B2B4A;
+}
+
+.hub-cities {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+}
+
+.hub {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.hub.shanghai {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.hub.suzhou {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.hub.hangzhou {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.network-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    text-align: center;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 20px;
+    min-width: 150px;
+}
+
+.stat-badge .stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0B2B4A;
+}
+
+.stat-badge .stat-label {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.forecast-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.forecast-card {
+    background: linear-gradient(135deg, #0B2B4A 0%, #1E4A76 100%);
+    border-radius: 32px;
+    padding: 48px;
+    color: white;
+    margin-top: 48px;
+}
+
+.forecast-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.forecast-item {
+    text-align: center;
+}
+
+.forecast-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.forecast-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.margin-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 48px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.margin-item {
+    display: flex;
+    gap: 12px;
+    font-size: 1rem;
+}
+
+.margin-label {
+    opacity: 0.9;
+}
+
+.margin-value {
+    font-weight: 700;
+}
+
+.growth-chart {
+    padding-top: 20px;
+}
+
+.chart-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bar {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    transition: width 0.5s;
+}
+
+.year1 {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.year2 {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.year3 {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.year4 {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.year5 {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+    .revenue-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .forecast-card {
+        padding: 24px;
+    }
+
+    .forecast-number {
+        font-size: 1.8rem;
+    }
+
+    .hub-cities {
+        gap: 20px;
+    }
+
+    .hub {
+        width: 70px;
+        height: 70px;
+        font-size: 0.8rem;
+    }
+}

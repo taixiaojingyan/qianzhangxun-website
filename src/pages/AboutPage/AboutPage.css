@@ -1,0 +1,79 @@
+.about-page {
+    min-height: 100vh;
+}
+
+.about-hero {
+    background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+    padding: 80px 0;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0B2B4A;
+    margin-bottom: 40px;
+}
+
+.company-intro {
+    max-width: 900px;
+}
+
+.company-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2D3748;
+    margin-bottom: 24px;
+}
+
+.team-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.team-card {
+    background: #F8FAFE;
+    border-radius: 24px;
+    padding: 28px;
+    transition: transform 0.3s;
+    border: 1px solid #E2E8F0;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+}
+
+.team-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0B2B4A;
+    margin-bottom: 16px;
+}
+
+.team-desc {
+    color: #4A5568;
+    line-height: 1.6;
+}
+
+.development-section {
+    padding: 80px 0;
+    text-align: center;
+    background: #F8FAFE;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
