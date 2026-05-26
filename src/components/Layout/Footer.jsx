@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 
 const Footer = () => {
+  const baseUrl = import.meta.env.BASE_URL; // 移到组件内部
   return (
     <footer className="footer">
       <div className="container">
@@ -13,9 +14,9 @@ const Footer = () => {
           </div>
           <div className="footer-links">
             <h4>快速链接</h4>
-            <a href="/about">关于我们</a>
-            <a href="/technology">核心技术</a>
-            <a href="/contact">联系我们</a>
+            <a href={`${baseUrl}about`}>关于我们</a>
+            <a href={`${baseUrl}technology`}>核心技术</a>
+            <a href={`${baseUrl}contact`}>联系我们</a>
           </div>
         </div>
         <div className="footer-bottom">
