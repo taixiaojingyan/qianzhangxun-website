@@ -21,7 +21,7 @@ const getHeroData = () => ({
 });
 
 // TODO: 后续从 API 获取背景资源
-const getBackgroundAssets = () => [
+const getBackgroundAssets = (baseUrl) => [
   { type: 'video', src: `${baseUrl}assets/videos/flight-test.mp4`, poster: `${baseUrl}assets/images/flight-poster.png`, label: '固定翼飞行器试飞' },
   { type: 'video', src: `${baseUrl}assets/videos/tas-interface.mp4`, poster: `${baseUrl}assets/images/tas-poster.png`, label: 'TAS系统界面' },
   { type: 'video', src: `${baseUrl}assets/videos/base-station.mp4`, poster: `${baseUrl}assets/images/base-poster.png`, label: '基站网络图' },
@@ -36,7 +36,7 @@ const Hero = () => {
   const [bgIndex, setBgIndex] = useState(0);
   
   const heroData = getHeroData();
-  const bgItems = getBackgroundAssets();
+  const bgItems = getBackgroundAssets(baseUrl);
   const [videoErrors, setVideoErrors] = useState({});
 
   // 检测移动端
