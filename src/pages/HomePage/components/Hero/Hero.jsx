@@ -36,7 +36,7 @@ const Hero = () => {
   
   const heroData = getHeroData();
   const bgItems = getBackgroundAssets();
-  const [videoError, setVideoError] = useState(false);
+  const [videoErrors, setVideoErrors] = useState({});
 
   // 检测移动端
   useEffect(() => {
@@ -99,34 +99,34 @@ const Hero = () => {
   }, [bgItems.length]);
 
   const currentBg = bgItems[bgIndex];
-
+  const hasError = videoErrors[currentBg.src];
   return (
     <section className="hero-section">
       <div className="hero-background">
-        {!videoError ? (
-          <video
-            key={currentBg.src}
-            className="hero-bg-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={currentBg.poster}
-            onError={(e) => {
-              console.log('视频加载失败:', currentBg.src);
-              setVideoError(true);
-            }}
-          >
-            <source src={currentBg.src} type="video/mp4" />
-          </video>
-        ) : (
-          <img 
-            src={currentBg.poster} 
-            className="hero-bg-video"
-            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-            alt={currentBg.label}
-          />
-        )}
+          {!hasError ? (
+        <video
+          key={currentBg.src}
+          className="hero-bg-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={currentBg.poster}
+          onError={() => {
+            console.log('视频加载失败:', currentBg.src);
+            setVideoErrors(prev => ({ ...prev, [currentBg.src]: true }));
+          }}
+        >
+          <source src={currentBg.src} type="video/mp4" />
+        </video>
+      ) : (
+        <img 
+          src={currentBg.poster} 
+          className="hero-bg-video"
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+          alt={currentBg.label}
+        />
+      )}
         <div className="hero-bg-overlay"></div>
         <div className="hero-tech-glow"></div>
         <div className="hero-scan-line"></div>
