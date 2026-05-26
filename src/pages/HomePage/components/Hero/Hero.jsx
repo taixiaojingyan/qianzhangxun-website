@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-const baseUrl = import.meta.env.BASE_URL; // 自动读取 vite 的 base 配置
 import "./Hero.css";
 
 // TODO: 后续从 API 获取这些数据
@@ -29,6 +28,7 @@ const getBackgroundAssets = () => [
 ];
 
 const Hero = () => {
+  const baseUrl = import.meta.env.BASE_URL; // 移到组件内部
   const [stats, setStats] = useState({ scale: 0, base: 0, revenue: 0, talents: 0 });
   const [isAnimating, setIsAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
