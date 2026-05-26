@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
+const baseUrl = import.meta.env.BASE_URL; // 自动读取 vite 的 base 配置
 import "./Hero.css";
 
 // TODO: 后续从 API 获取这些数据
@@ -22,9 +23,9 @@ const getHeroData = () => ({
 
 // TODO: 后续从 API 获取背景资源
 const getBackgroundAssets = () => [
-  { type: 'video', src: '/assets/videos/flight-test.mp4', poster: '/assets/images/flight-poster.png', label: '固定翼飞行器试飞' },
-  { type: 'video', src: '/assets/videos/tas-interface.mp4', poster: '/assets/images/tas-poster.png', label: 'TAS系统界面' },
-  { type: 'video', src: '/assets/videos/base-station.mp4', poster: '/assets/images/base-poster.png', label: '基站网络图' },
+  { type: 'video', src: `${baseUrl}assets/videos/flight-test.mp4`, poster: `${baseUrl}assets/images/flight-poster.png`, label: '固定翼飞行器试飞' },
+  { type: 'video', src: `${baseUrl}assets/videos/tas-interface.mp4`, poster: `${baseUrl}assets/images/tas-poster.png`, label: 'TAS系统界面' },
+  { type: 'video', src: `${baseUrl}assets/videos/base-station.mp4`, poster: `${baseUrl}assets/images/base-poster.png`, label: '基站网络图' },
 ];
 
 const Hero = () => {
