@@ -1,144 +1,666 @@
+/* TechnologyPage - 科技风样式 */
+
 .technology-page {
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* ========== Hero 区域 ========== */
 .tech-hero {
-    background: linear-gradient(135deg, #0B2B4A 0%, #1E4A76 100%);
-    padding: 80px 0;
-    text-align: center;
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    overflow: hidden;
 }
 
-.tech-hero .page-title {
-    color: white;
-    margin-bottom: 16px;
+.hero-bg-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(0, 212, 255, 0.08), transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.tech-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #00D4FF;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #E8EDFF;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #00D4FF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 .tech-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    color: rgba(232, 237, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 48px;
 }
 
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 40px;
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.hero-stat .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00D4FF, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-stat .stat-label {
+    font-size: 0.8rem;
+    color: rgba(232, 237, 255, 0.6);
+}
+
+/* ========== 通用区域样式 ========== */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00D4FF;
+    background: rgba(0, 212, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #E8EDFF;
+}
+
+.section-desc {
+    color: rgba(232, 237, 255, 0.6);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========== 时间轴区域 ========== */
 .tech-timeline {
     padding: 80px 0;
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.timeline-nav-wrapper {
+    overflow-x: auto;
+    margin-bottom: 48px;
+    padding-bottom: 12px;
+    padding-top: 10px;
 }
 
 .timeline-nav {
     display: flex;
-    flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 48px;
-    justify-content: center;
+    min-width: min-content;
 }
 
 .timeline-btn {
     flex: 1;
-    min-width: 150px;
+    min-width: 160px;
     padding: 16px 20px;
-    background: #F1F5F9;
-    border: none;
-    border-radius: 40px;
+    background: rgba(15, 25, 45, 0.5);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 20px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     text-align: center;
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+.timeline-btn:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateY(-2px);
 }
 
 .timeline-btn.active {
-    background: #0B2B4A;
-    color: white;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.1));
+    border-color: #00D4FF;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
 }
 
-.timeline-btn .phase {
-    display: block;
+.timeline-phase-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
     font-size: 0.8rem;
+    font-weight: 700;
+    background: rgba(0, 212, 255, 0.2);
+    border-radius: 50%;
+    color: #00D4FF;
+    margin-bottom: 8px;
+}
+
+.timeline-btn.active .timeline-phase-num {
+    background: linear-gradient(135deg, #00D4FF, #0066FF);
+    color: #fff;
+}
+
+.timeline-phase {
+    display: block;
+    font-size: 0.75rem;
     font-weight: 600;
+    color: rgba(232, 237, 255, 0.7);
     margin-bottom: 4px;
 }
 
-.timeline-btn .title {
-    font-size: 0.9rem;
+.timeline-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #E8EDFF;
 }
 
+.timeline-btn.active .timeline-title {
+    color: #00D4FF;
+}
+
+.active-indicator {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #00D4FF, #0066FF);
+    border-radius: 2px;
+}
+
+/* 详细内容卡片 */
 .timeline-detail {
-    background: #F8FAFE;
-    border-radius: 32px;
     padding: 48px;
     text-align: center;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease;
 }
 
-.timeline-detail h2 {
-    font-size: 2rem;
-    color: #0B2B4A;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-icon {
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
+.detail-header {
+    margin-bottom: 24px;
+}
+
+.detail-phase {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #00D4FF;
+    background: rgba(0, 212, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E8EDFF;
+}
+
 .detail-desc {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.8;
-    color: #4A5568;
-    max-width: 800px;
+    color: rgba(232, 237, 255, 0.7);
+    max-width: 700px;
     margin: 0 auto 24px;
 }
 
-.highlight-badge {
-    display: inline-block;
-    background: #0B2B4A;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 40px;
-    font-weight: 600;
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
 }
 
+.tech-tag {
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #00D4FF;
+}
+
+.highlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.1));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    color: #00D4FF;
+}
+
+.highlight-icon {
+    font-size: 1rem;
+}
+
+/* ========== 技术壁垒区域 ========== */
 .tech-barrier {
     padding: 80px 0;
-    background: #F8FAFE;
 }
 
 .barrier-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     margin: 48px 0;
 }
 
 .barrier-card {
-    background: white;
-    border-radius: 24px;
-    padding: 32px;
+    padding: 36px 28px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
-.barrier-card h3 {
-    font-size: 1.35rem;
-    color: #0B2B4A;
+.barrier-card:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
+}
+
+.barrier-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.barrier-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #E8EDFF;
+    margin-bottom: 12px;
+}
+
+.barrier-desc {
+    color: rgba(232, 237, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.barrier-analogy {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 212, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #00D4FF;
     margin-bottom: 16px;
 }
 
+.analogy-icon {
+    font-size: 0.9rem;
+}
+
+.barrier-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.barrier-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: rgba(232, 237, 255, 0.6);
+}
+
+/* 变革对比 */
 .comparison-box {
-    background: #EFF6FF;
-    border-radius: 24px;
-    padding: 32px;
-    text-align: center;
     margin-top: 48px;
+    padding: 40px;
+    text-align: center;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.comparison-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
 }
 
 .comparison-box h3 {
     font-size: 1.5rem;
-    color: #0B2B4A;
-    margin-bottom: 16px;
+    font-weight: 700;
+    color: #E8EDFF;
+    margin-bottom: 32px;
+}
+
+.comparison-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.comparison-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 24px 32px;
+    min-width: 240px;
+}
+
+.comparison-item.old {
+    border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+.comparison-item.new {
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.comparison-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(232, 237, 255, 0.5);
+    margin-bottom: 8px;
+}
+
+.comparison-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.comparison-item.old .comparison-value {
+    color: #ff6b6b;
+}
+
+.comparison-item.new .comparison-value {
+    background: linear-gradient(135deg, #00D4FF, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.comparison-desc {
+    font-size: 0.75rem;
+    color: rgba(232, 237, 255, 0.5);
+}
+
+.comparison-arrow {
+    font-size: 2rem;
+    color: #00D4FF;
+    font-weight: 700;
+}
+
+.comparison-analogy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 212, 255, 0.08);
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    color: #00D4FF;
+}
+
+/* ========== 专利区域 ========== */
+.patent-section {
+    padding: 60px 0 100px;
+    background: linear-gradient(180deg, transparent, rgba(0, 212, 255, 0.03), transparent);
+}
+
+.patent-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.patent-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.patent-stat {
+    text-align: center;
+}
+
+.patent-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00D4FF, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.patent-label {
+    font-size: 0.8rem;
+    color: rgba(232, 237, 255, 0.6);
+}
+
+.patent-desc {
+    color: rgba(232, 237, 255, 0.7);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 1024px) {
+    .barrier-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .page-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-stats {
+        gap: 32px;
+    }
 }
 
 @media (max-width: 768px) {
+    .tech-hero {
+        padding: 80px 0 50px;
+        min-height: auto;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .tech-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-stats {
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+
+    .hero-stat .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
     .timeline-nav {
         flex-direction: column;
     }
 
-    .timeline-detail {
-        padding: 24px;
+    .timeline-btn {
+        min-width: auto;
     }
 
-    .timeline-detail h2 {
+    .active-indicator {
+        display: none;
+    }
+
+    .timeline-detail {
+        padding: 32px 24px;
+    }
+
+    .detail-title {
         font-size: 1.5rem;
+    }
+
+    .detail-desc {
+        font-size: 0.9rem;
+    }
+
+    .barrier-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .comparison-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .comparison-arrow {
+        transform: rotate(90deg);
+    }
+
+    .comparison-item {
+        width: 100%;
+    }
+
+    .patent-stats {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .patent-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-badge {
+        font-size: 0.7rem;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .detail-title {
+        font-size: 1.2rem;
+    }
+
+    .detail-tags {
+        gap: 6px;
+    }
+
+    .tech-tag {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+    }
+
+    .highlight-badge {
+        font-size: 0.8rem;
+        padding: 6px 16px;
     }
 }

@@ -1,6 +1,8 @@
 import React from "react";
+import "./CoreValues.css";
 
-const coreValues = [
+// TODO: 后续从 API 获取核心价值数据
+const getCoreValues = () => [
   {
     icon: "✈️",
     title: "低成本航空技术",
@@ -19,6 +21,8 @@ const coreValues = [
 ];
 
 const CoreValues = () => {
+  const coreValues = getCoreValues();
+
   return (
     <section className="core-values-section">
       <div className="container">

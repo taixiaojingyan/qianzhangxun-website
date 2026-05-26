@@ -1,14 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import Hero from "./components/Hero";
-import CoreValues from "./components/CoreValues";
-import Partners from "./components/Partners";
+import React, { useEffect } from "react";
+import Hero from "./components/Hero/Hero";
+import CoreValues from "./components/CoreValues/CoreValues";
+import Partners from "./components/Partners/Partners";
 import "./HomePage.css";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const sectionRef = useRef(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -9,50 +9,45 @@ import NewsPage from "../pages/NewsPage/NewsPage";
 import JoinPage from "../pages/JoinPage/JoinPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-      children: [
-        {
-          index: true,
-          element: <HomePage />,
-        },
-        {
-          path: "about",
-          element: <AboutPage />,
-        },
-        {
-          path: "technology",
-          element: <TechnologyPage />,
-        },
-        {
-          path: "solutions",
-          element: <SolutionsPage />,
-        },
-        {
-          path: "business",
-          element: <BusinessPage />,
-        },
-        {
-          path: "news",
-          element: <NewsPage />,
-        },
-        {
-          path: "join",
-          element: <JoinPage />,
-        },
-        {
-          path: "contact",
-          element: <ContactPage />,
-        },
-      ],
-    },
-  ],
+const router = createBrowserRouter([
   {
-    basename: "/qianzhangxun-website", // 👈 添加这一行
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
+      },
+      {
+        path: "technology",
+        element: <TechnologyPage />,
+      },
+      {
+        path: "solutions",
+        element: <SolutionsPage />,
+      },
+      {
+        path: "business",
+        element: <BusinessPage />,
+      },
+      {
+        path: "news",
+        element: <NewsPage />,
+      },
+      {
+        path: "join",
+        element: <JoinPage />,
+      },
+      {
+        path: "contact",
+        element: <ContactPage />,
+      },
+    ],
   },
-);
+]);
 
 export default router;

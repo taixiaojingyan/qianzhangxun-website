@@ -2,11 +2,12 @@
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: rgba(5, 11, 20, 0.85);
-    backdrop-filter: blur(16px);
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(5,11,20,0.85), rgba(5,11,20,0.7));
+    backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--border-glow);
-    transition: all var(--transition-normal);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.03) inset;
+    transition: var(--transition-normal);
 }
 
 /* 导航栏容器 */
@@ -30,7 +31,7 @@
     color: transparent;
     text-decoration: none;
     letter-spacing: -0.02em;
-    transition: all var(--transition-fast);
+    transition: var(--transition-fast);
 }
 
 .logo:hover {
@@ -48,25 +49,38 @@
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
-    transition: all var(--transition-fast);
+    transition: var(--transition-fast);
     position: relative;
     font-size: 0.95rem;
+    padding: 4px 0;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 6px;
 }
 
 .nav-links a:hover {
-    color: var(--primary-cyan);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 212, 255, 0.06), 0 0 12px rgba(0, 212, 255, 0.04) inset;
 }
 
-/* 下划线动画 */
+/* 选中样式 - 透明科技感效果 */
+.nav-links a.active {
+    /* color: var(--primary-cyan); */
+    /* background: rgba(0, 229, 255, 0.08); */
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+}
+
+/* 下划线动画 - 选中时显示 */
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
-    transition: width var(--transition-normal);
+    transition: width 0.3s ease;
     border-radius: 2px;
 }
 
@@ -75,8 +89,24 @@
     width: 100%;
 }
 
+/* 选中时的额外科技感光晕 */
 .nav-links a.active {
-    color: var(--primary-cyan);
+    position: relative;
+}
+
+.nav-links a.active::before {
+    content: '';
+    position: absolute;
+    inset: -4px -8px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.1), transparent);
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a.active:hover::before {
+    opacity: 1;
 }
 
 /* 移动端菜单按钮 */
@@ -87,14 +117,12 @@
     border: none;
     cursor: pointer;
     color: var(--primary-cyan);
-    transition: all var(--transition-fast);
+    transition: var(--transition-fast);
 }
 
 .mobile-menu-btn:hover {
     color: var(--primary-purple);
 }
-
-
 
 /* ========== 响应式 ========== */
 @media (max-width: 968px) {
@@ -112,8 +140,8 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(5, 11, 20, 0.95);
-        backdrop-filter: blur(20px);
+        background: linear-gradient(180deg, rgba(5,11,20,0.96), rgba(5,11,20,0.88));
+        backdrop-filter: blur(calc(var(--glass-blur) + 8px));
         flex-direction: column;
         padding: 24px;
         gap: 20px;
@@ -127,7 +155,7 @@
 
     .nav-links a {
         font-size: 1.1rem;
-        padding: 8px 0;
+        padding: 12px 0;
         width: 100%;
         text-align: center;
     }
@@ -135,11 +163,15 @@
     .nav-links a::after {
         bottom: 0;
     }
+
+    /* 移动端选中样式 */
+    .nav-links a.active {
+        background: rgba(0, 229, 255, 0.12);
+        border-radius: 8px;
+    }
 }
 
 @media (max-width: 480px) {
-   
-
     .logo {
         font-size: 1.2rem;
     }

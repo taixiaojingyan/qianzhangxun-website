@@ -17,6 +17,22 @@ body {
     overflow-x: hidden;
 }
 
+/* ========== 全局 主题 变量 - 科技感 ========== */
+:root {
+    --primary-cyan: #00e5ff;
+    --primary-purple: #7b2ff7;
+    --accent-teal: #00d4ff;
+    --bg-dark: #050b14;
+    --surface: rgba(15, 25, 45, 0.6);
+    --border-glow: rgba(0, 229, 255, 0.18);
+    --text-primary: #E8EDFF;
+    --text-secondary: #b0c4de;
+    --text-muted: #7f8c9b;
+    --glass-blur: 12px;
+    --transition-normal: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    --transition-fast: all 0.18s ease;
+}
+
 /* 科技感网格背景 */
 body::before {
     content: '';

@@ -1,187 +1,762 @@
+/* JoinPage - 科技风样式 */
+
 .join-page {
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* ========== Hero 区域 ========== */
 .join-hero {
-    background: linear-gradient(135deg, #0B2B4A 0%, #2C7DA0 100%);
-    padding: 80px 0;
-    text-align: center;
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    overflow: hidden;
 }
 
-.join-hero .page-title {
+.hero-bg-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(0, 212, 255, 0.08), transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.join-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #00D4FF;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #E8EDFF;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #00D4FF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(232, 237, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00D4FF, #0066FF);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 40px;
     color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 150, 255, 0.4);
+}
+
+.btn-arrow {
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid #00D4FF;
+    padding: 12px 32px;
+    border-radius: 40px;
+    color: #00D4FF;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-dot {
+    width: 6px;
+    height: 6px;
+    background: #00D4FF;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+/* ========== 通用区域样式 ========== */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00D4FF;
+    background: rgba(0, 212, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
     margin-bottom: 16px;
 }
 
-.join-hero .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #E8EDFF;
 }
 
+.section-desc {
+    color: rgba(232, 237, 255, 0.6);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========== 培训计划区域 ========== */
 .training-section {
     padding: 80px 0;
-    background: #F8FAFE;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .training-stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin: 48px 0;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
 }
 
 .training-stat {
     text-align: center;
+    padding: 28px 20px;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
-.training-stat .stat-number {
-    font-size: 3rem;
+.training-stat:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
     font-weight: 800;
-    color: #0B2B4A;
+    background: linear-gradient(135deg, #00D4FF, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.training-stat .stat-label {
-    font-size: 1rem;
-    color: #4A5568;
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(232, 237, 255, 0.8);
+    margin-top: 8px;
+}
+
+.stat-trend {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(232, 237, 255, 0.5);
+    margin-top: 6px;
 }
 
 .training-desc {
-    max-width: 800px;
-    margin: 0 auto;
-    color: #4A5568;
-    line-height: 1.8;
+    padding: 32px;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    text-align: center;
 }
 
+.desc-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.training-desc p {
+    color: rgba(232, 237, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.training-features {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    font-size: 0.85rem;
+    color: #00D4FF;
+}
+
+/* ========== 岗位区域 ========== */
 .positions-section {
     padding: 80px 0;
-    background: #ffffff;
 }
 
 .positions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-    margin-top: 48px;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 28px;
+    margin-bottom: 48px;
 }
 
 .position-card {
-    background: #F8FAFE;
-    border-radius: 24px;
     padding: 28px;
-    border: 1px solid #E2E8F0;
-    transition: transform 0.3s;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
 .position-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
+}
+
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.position-icon {
+    font-size: 2rem;
+}
+
+.position-badge {
+    background: rgba(0, 212, 255, 0.15);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #00D4FF;
 }
 
 .position-title {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #0B2B4A;
+    color: #E8EDFF;
     margin-bottom: 12px;
 }
 
 .position-meta {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 16px;
-    font-size: 0.85rem;
-    color: #718096;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: rgba(232, 237, 255, 0.6);
+}
+
+.meta-icon {
+    font-size: 0.8rem;
+}
+
+.salary {
+    color: #00D4FF;
 }
 
 .position-desc {
-    color: #4A5568;
+    color: rgba(232, 237, 255, 0.7);
     line-height: 1.6;
     margin-bottom: 20px;
+    font-size: 0.9rem;
 }
 
-.btn-outline-small {
-    background: transparent;
-    border: 1px solid #0B2B4A;
-    color: #0B2B4A;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.85rem;
+.position-requirements {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.req-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(232, 237, 255, 0.5);
+    margin-bottom: 8px;
+}
+
+.position-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.position-requirements li {
+    padding: 4px 0;
+    font-size: 0.8rem;
+    color: rgba(232, 237, 255, 0.6);
+    padding-left: 16px;
+    position: relative;
+}
+
+.position-requirements li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #00D4FF;
+}
+
+.apply-btn {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 102, 255, 0.05));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 12px;
+    border-radius: 40px;
+    color: #00D4FF;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
-.btn-outline-small:disabled {
+.apply-btn:hover:not(:disabled) {
+    background: rgba(0, 212, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.apply-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
+.more-positions {
+    text-align: center;
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+/* ========== 合作高校区域 ========== */
 .universities-section {
     padding: 80px 0;
-    background: #F8FAFE;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .universities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
-    margin: 48px 0;
+    margin-bottom: 48px;
 }
 
 .uni-card {
-    background: white;
-    padding: 20px;
-    border-radius: 20px;
     text-align: center;
-    transition: all 0.3s;
-    border: 1px solid #E2E8F0;
+    padding: 24px 16px;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
 .uni-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 212, 255, 0.5);
 }
 
 .uni-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: block;
     margin-bottom: 12px;
 }
 
 .uni-name {
+    display: block;
     font-weight: 600;
-    color: #0B2B4A;
+    color: #E8EDFF;
+    margin-bottom: 6px;
+}
+
+.uni-type {
+    font-size: 0.7rem;
+    color: #00D4FF;
 }
 
 .cooperation-note {
     text-align: center;
-    padding: 32px;
-    background: white;
-    border-radius: 24px;
-    margin-top: 32px;
+    padding: 40px;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-.cooperation-note a {
-    color: #0B2B4A;
-    font-weight: 600;
+.cooperation-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.cooperation-note h3 {
+    font-size: 1.3rem;
+    color: #E8EDFF;
+    margin-bottom: 12px;
+}
+
+.cooperation-note p {
+    color: rgba(232, 237, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 212, 255, 0.1);
+    padding: 8px 24px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+
+.email-icon {
+    font-size: 1rem;
+}
+
+.contact-email a {
+    color: #00D4FF;
     text-decoration: none;
+    font-weight: 600;
 }
 
-.cooperation-note a:hover {
+.contact-email a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+.cooperation-tags {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.coop-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    color: rgba(232, 237, 255, 0.7);
+}
+
+/* ========== 福利待遇区域 ========== */
+.benefits-section {
+    padding: 80px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.benefit-card {
+    padding: 28px;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.benefit-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #E8EDFF;
+    margin-bottom: 12px;
+}
+
+.benefit-card p {
+    color: rgba(232, 237, 255, 0.6);
+    line-height: 1.6;
+    font-size: 0.85rem;
+}
+
+/* ========== CTA 区域 ========== */
+.join-cta {
+    padding: 60px 0 100px;
+}
+
+.cta-card {
+    text-align: center;
+    padding: 48px;
+    background: rgba(15, 25, 45, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.cta-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.cta-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #E8EDFF;
+    margin-bottom: 16px;
+}
+
+.cta-card p {
+    color: rgba(232, 237, 255, 0.7);
+    max-width: 500px;
+    margin: 0 auto 28px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.cta-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(232, 237, 255, 0.4);
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 1024px) {
     .training-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-title {
+        font-size: 2.8rem;
+    }
+
+    .positions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .join-hero {
+        padding: 80px 0 50px;
+        min-height: auto;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .training-stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .training-stat {
+        padding: 20px;
+    }
+
+    .training-features {
         flex-direction: column;
-        gap: 30px;
+        gap: 8px;
     }
 
     .positions-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .position-card {
+        padding: 20px;
+    }
+
+    .position-title {
+        font-size: 1.1rem;
+    }
+
+    .position-meta {
+        gap: 12px;
     }
 
     .universities-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-card {
+        padding: 32px 24px;
+    }
+
+    .cta-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-badge {
+        font-size: 0.7rem;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .uni-card {
+        padding: 16px;
+    }
+
+    .uni-name {
+        font-size: 0.85rem;
+    }
+
+    .cooperation-note {
+        padding: 24px;
     }
 }
