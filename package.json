@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --mode development",
     "dev:mock": "vite --mode development --host",
-    "build": "vite build --mode production",
+    "build": "vite build --mode production && cp dist/index.html dist/404.html",
     "preview": "vite preview",
     "generate-sitemap": "node ./scripts/generate-sitemap.js",
     "deploy": "gh-pages -d dist",

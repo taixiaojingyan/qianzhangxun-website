@@ -1,14 +1,27 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import fs from "fs";
+
+// 自定义插件：构建完成后复制 index.html 为 404.html
+const copy404Plugin = () => ({
+  name: "copy-404",
+  closeBundle: () => {
+    const distIndex = path.resolve(__dirname, "dist/index.html");
+    const dist404 = path.resolve(__dirname, "dist/404.html");
+    if (fs.existsSync(distIndex)) {
+      fs.copyFileSync(distIndex, dist404);
+      console.log("✅ 已自动生成 404.html");
+    }
+  },
+});
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    plugins: [react()],
+    plugins: [react(), copy404Plugin()],  // 添加自定义插件
     base: "/qianzhangxun-website/",
-    // base: '/',
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
@@ -27,7 +40,6 @@ export default defineConfig(({ command, mode }) => {
       port: 3000,
       open: true,
       host: true,
-      // 代理配置
       proxy: {
         "/api": {
           target: env.VITE_API_TARGET || "http://localhost:3001",
