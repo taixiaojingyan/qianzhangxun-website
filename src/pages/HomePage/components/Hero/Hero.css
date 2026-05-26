@@ -38,7 +38,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 30% 40%, rgba(10, 14, 26, 0.75), rgba(6, 8, 18, 0.94));
+    background: radial-gradient(circle at 30% 40%, rgba(10, 14, 26, 0.6), rgba(6, 8, 18, 0.85));
     z-index: 1;
 }
 
@@ -418,6 +418,15 @@
 
 /* ========== 平板响应式 ========== */
 @media (max-width: 1100px) {
+    .hero-bg-overlay {
+        background: radial-gradient(circle at 30% 40%, rgba(10, 14, 26, 0.4), rgba(6, 8, 18, 0.7));
+    }
+
+    /* 移动端提高视频/图片亮度 */
+    .hero-bg-video {
+        opacity: 0.35 !important;
+        /* 从 0.2 提到 0.35 */
+    }
     .hero-title {
         font-size: 3rem;
     }
@@ -428,6 +437,15 @@
 }
 
 @media (max-width: 1024px) {
+    .hero-bg-overlay {
+        background: radial-gradient(circle at 30% 40%, rgba(10, 14, 26, 0.4), rgba(6, 8, 18, 0.7));
+    }
+
+    /* 移动端提高视频/图片亮度 */
+    .hero-bg-video {
+        opacity: 0.35 !important;
+        /* 从 0.2 提到 0.35 */
+    }
     .hero-section {
         min-height: auto;
         padding: 80px 0 60px;
@@ -508,6 +526,15 @@
 }
 /* ========== 手机响应式 - 重点优化 ========== */
 @media (max-width: 768px) {
+    .hero-bg-overlay {
+            background: radial-gradient(circle at 30% 40%, rgba(10, 14, 26, 0.4), rgba(6, 8, 18, 0.7));
+        }
+    
+    /* 移动端提高视频/图片亮度 */
+    .hero-bg-video {
+        opacity: 0.35 !important;
+        /* 从 0.2 提到 0.35 */
+    }
     .hero-section {
         padding: 40px 0 50px;
         min-height: auto;
@@ -634,6 +661,16 @@
 
 /* 小屏手机深度优化 (≤480px) */
 @media (max-width: 480px) {
+
+    .hero-bg-overlay {
+        background: radial-gradient(circle at 30% 40%, rgba(10, 14, 26, 0.4), rgba(6, 8, 18, 0.7));
+    }
+
+    /* 移动端提高视频/图片亮度 */
+    .hero-bg-video {
+        opacity: 0.35 !important;
+        /* 从 0.2 提到 0.35 */
+    }
     .hero-section {
         padding: 30px 0 40px;
     }
